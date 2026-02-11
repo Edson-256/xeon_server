@@ -226,4 +226,104 @@ Total 7 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
 remote: Resolving deltas:   0% (0/4)[Kremote: Resolving deltas:  25% (1/4)[Kremote: Resolving deltas:  50% (2/4)[Kremote: Resolving deltas:  75% (3/4)[Kremote: Resolving deltas: 100% (4/4)[Kremote: Resolving deltas: 100% (4/4), completed with 4 local objects.[K
 To https://github.com/Edson-256/xeon_server.git
    71a574a..8afc01c  main -> main
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hsssh -o BatchMode=yes -o ConnectTimeout=5 -p 2222 edson@192.168.100.242 "echo '=== SITES ===' && ls /etc/nginx/sites-enabled/ && echo '=== NGINX ===' && sudo nginx -t && [K  echo '=== SITE OK ===' && curl -sI -H 'Host: michalkcare.com' http://localhost | head -5 && echo '=== IP DIRETO ===' && curl -sI http://localhost | head -3"[?2004l
+]133;C;=== SITES ===
+michalkcare
+=== NGINX ===
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+=== SITE OK ===
+HTTP/1.1 200 OK
+Server: nginx
+Date: Wed, 11 Feb 2026 12:48:48 GMT
+Content-Type: text/html
+Content-Length: 18859
+=== IP DIRETO ===
+HTTP/1.1 200 OK
+Server: nginx
+Date: Wed, 11 Feb 2026 12:48:48 GMT
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hccd /Users/edsonmichalkiewicz/dev/xeon_server && bd close xeon_server-8or 2>/dev/null && bd sync 2>/dev/null && git add -A && git commit -m "chore: close nginx default r [Keemoval issue" && git push[?2004l
+]133;C;]11;?\[6n[38;2;194;217;76m✓[0m Closed xeon_server-8or: Closed
+]11;?\[6nExporting beads to JSONL...
+✓ Exported 0 issues (1 changed since last sync)
+✓ /Users/edsonmichalkiewicz/dev/xeon_server/.beads/issues.jsonl updated
+]11;?\[6n]11;?\[6n[main e0d7eba] chore: close nginx default removal issue
+ 3 files changed, 20 insertions(+), 4 deletions(-)
+]11;?\[6nEnumerating objects: 13, done.
+Counting objects:   7% (1/13)Counting objects:  15% (2/13)Counting objects:  23% (3/13)Counting objects:  30% (4/13)Counting objects:  38% (5/13)Counting objects:  46% (6/13)Counting objects:  53% (7/13)Counting objects:  61% (8/13)Counting objects:  69% (9/13)Counting objects:  76% (10/13)Counting objects:  84% (11/13)Counting objects:  92% (12/13)Counting objects: 100% (13/13)Counting objects: 100% (13/13), done.
+Delta compression using up to 14 threads
+Compressing objects:  16% (1/6)Compressing objects:  33% (2/6)Compressing objects:  50% (3/6)Compressing objects:  66% (4/6)Compressing objects:  83% (5/6)Compressing objects: 100% (6/6)Compressing objects: 100% (6/6), done.
+Writing objects:  14% (1/7)Writing objects:  28% (2/7)Writing objects:  42% (3/7)Writing objects:  57% (4/7)Writing objects:  71% (5/7)Writing objects:  85% (6/7)Writing objects: 100% (7/7)Writing objects: 100% (7/7), 1.15 KiB | 117.00 KiB/s, done.
+Total 7 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas:   0% (0/4)[Kremote: Resolving deltas:  25% (1/4)[Kremote: Resolving deltas:  50% (2/4)[Kremote: Resolving deltas:  75% (3/4)[Kremote: Resolving deltas: 100% (4/4)[Kremote: Resolving deltas: 100% (4/4), completed with 4 local objects.[K
+To https://github.com/Edson-256/xeon_server.git
+   8afc01c..e0d7eba  main -> main
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hsssh -o BatchMode=yes -o ConnectTimeout=5 -p 2222 edson@192.168.100.242 'cat > /tmp/health_check.sh << '\''SCRIPT'\''[?2004l
+[0m[27m[24m[Jquote> [K[?2004h##!/bin/bash[?2004l
+[0m[27m[24m[Jquote> [K[?2004h## Health Check + Telegram Alerts - Xeon Server[?2004l
+[0m[27m[24m[Jquote> [K[?2004hssource /etc/xeon-secrets.env[?2004l
+[0m[27m[24m[Jquote> [K[?2004h[?2004l
+[0m[27m[24m[Jquote> [K[?2004hDDATE=$(date "+%Y-%m-%d %H:%M:%S")[?2004l
+[0m[27m[24m[Jquote> [K[?2004hPPROBLEMS=""[?2004l
+[0m[27m[24m[Jquote> [K[?2004hRREPORT=""[?2004l
+[0m[27m[24m[Jquote> [K[?2004h[?2004l
+[0m[27m[24m[Jquote> [K[?2004hccheck_service() {[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   if systemctl is-active --quiet $1; then[?2004l
+[0m[27m[24m[Jquote> [K[?2004h     REPORT="${REPORT}\n✅ $1"[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   else[?2004l
+[0m[27m[24m[Jquote> [K[?2004h     REPORT="${REPORT}\n🔴 $1 DOWN - reiniciando..."[?2004l
+[0m[27m[24m[Jquote> [K[?2004h     PROBLEMS="${PROBLEMS}$1 "[?2004l
+[0m[27m[24m[Jquote> [K[?2004h     sudo systemctl restart $1[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   fi[?2004l
+[0m[27m[24m[Jquote> [K[?2004h}[?2004l
+[0m[27m[24m[Jquote> [K[?2004h[?2004l
+[0m[27m[24m[Jquote> [K[?2004hccheck_service nginx[?2004l
+[0m[27m[24m[Jquote> [K[?2004hccheck_service cloudflared[?2004l
+[0m[27m[24m[Jquote> [K[?2004hccheck_service fail2ban[?2004l
+[0m[27m[24m[Jquote> [K[?2004hccheck_service ssh[?2004l
+[0m[27m[24m[Jquote> [K[?2004h[?2004l
+[0m[27m[24m[Jquote> [K[?2004h## Disco[?2004l
+[0m[27m[24m[Jquote> [K[?2004hDDISK=$(df / | tail -1 | awk "{print \$5}" | tr -d "%")[?2004l
+[0m[27m[24m[Jquote> [K[?2004hiif [ $DISK -gt 80 ]; then[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   REPORT="${REPORT}\n⚠⚠️ Disco: ${DISK}%"[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   PROBLEMS="${PROBLEMS}disco "[?2004l
+[0m[27m[24m[Jquote> [K[?2004heelse[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   REPORT="${REPORT}\n✅ Disco: ${DISK}%"[?2004l
+[0m[27m[24m[Jquote> [K[?2004hffi[?2004l
+[0m[27m[24m[Jquote> [K[?2004h[?2004l
+[0m[27m[24m[Jquote> [K[?2004h## UFW[?2004l
+[0m[27m[24m[Jquote> [K[?2004hiif sudo ufw status | grep -q "active"; then[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   REPORT="${REPORT}\n✅ UFW ativo"[?2004l
+[0m[27m[24m[Jquote> [K[?2004heelse[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   REPORT="${REPORT}\n🔴 UFW inativo!"[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   PROBLEMS="${PROBLEMS}ufw "[?2004l
+[0m[27m[24m[Jquote> [K[?2004hffi[?2004l
+[0m[27m[24m[Jquote> [K[?2004h[?2004l
+[0m[27m[24m[Jquote> [K[?2004h## Envia mensagem[?2004l
+[0m[27m[24m[Jquote> [K[?2004hHHEADER="🖥🖥️ *Xeon Server* | ${DATE}"[?2004l
+[0m[27m[24m[Jquote> [K[?2004hiif [ -n "$PROBLEMS" ]; then[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   MSG="${HEADER}\n⚠⚠️ *ALERTA*: ${PROBLEMS}\n${REPORT}"[?2004l
+[0m[27m[24m[Jquote> [K[?2004heelse[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   MSG="${HEADER}\n[7m<0001f7e2>[27m Tudo OK\n${REPORT}"[?2004l
+[0m[27m[24m[Jquote> [K[?2004hffi[?2004l
+[0m[27m[24m[Jquote> [K[?2004h[?2004l
+[0m[27m[24m[Jquote> [K[?2004hccurl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   -d chat_id="${TELEGRAM_CHAT_ID}" \[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   -d text="$(echo -e "$MSG")" \[?2004l
+[0m[27m[24m[Jquote> [K[?2004h   -d parse_mode="Markdown" > /dev/null 2>&1[?2004l
+[0m[27m[24m[Jquote> [K[?2004h[?2004l
+[0m[27m[24m[Jquote> [K[?2004heecho -e "[$DATE] $MSG"[?2004l
+[0m[27m[24m[Jquote> [K[?2004hSSCRIPT[?2004l
+[0m[27m[24m[Jquote> [K[?2004hssudo cp /tmp/health_check.sh /home/edson/scripts/health_check.sh && sudo chmod +x /home/edson/scripts/health_check.sh && echo "--- UPDATED ---"'[?2004l
+]133;C;--- UPDATED ---
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hsssh -o BatchMode=yes -o ConnectTimeout=5 -p 2222 edson@192.168.100.242 "sudo /home/edson/scripts/health_check.sh"[?2004l
+]133;C;[2026-02-11 15:17:54] 🖥️ *Xeon Server* | 2026-02-11 15:17:54
+🟢 Tudo OK
+
+✅ nginx
+✅ cloudflared
+✅ fail2ban
+✅ ssh
+✅ Disco: 11%
+✅ UFW ativo
 [1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004h

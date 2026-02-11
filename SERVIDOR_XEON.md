@@ -216,7 +216,27 @@ curl -sI -H "Host: michalkcare.com" http://localhost
 
 ---
 
-## 11. Comandos de Emergência
+## 11. Alertas via Telegram
+
+| Item | Valor |
+|:-----|:------|
+| **Bot** | `@xeonserver_bot` |
+| **Secrets** | `/etc/xeon-secrets.env` (chmod 600, root only) |
+| **Frequência** | A cada 6 horas (cron) |
+| **Mensagem OK** | 🟢 Tudo OK + status de cada serviço |
+| **Mensagem ALERTA** | 🔴 Nome do serviço + tentativa de restart |
+
+```bash
+# Testar manualmente
+sudo /home/edson/scripts/health_check.sh
+
+# Editar token/chatID
+sudo nano /etc/xeon-secrets.env
+```
+
+---
+
+## 12. Comandos de Emergência
 
 ```bash
 # Reiniciar todos os serviços
