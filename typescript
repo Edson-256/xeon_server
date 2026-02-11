@@ -87,4 +87,97 @@ drwxr-xr-x  3 edson edson 4096 fev 10 03:27 michalkcare
 === USERS ===
 nobody
 edson
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hccd /Users/edsonmichalkiewicz/dev/xeon_server && git status[?2004l
+]133;C;On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31m.beads/[m
+	[31m.gitattributes[m
+	[31mAGENTS.md[m
+	[31mDEPLOY_RAPIDO.md[m
+	[31mImagens/[m
+	[31mSERVIDOR_XEON.md[m
+	[31mnginx/[m
+	[31mpublic_html/[m
+	[31mtypescript[m
+	[31mweb_page_install_plan.md[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hccd /Users/edsonmichalkiewicz/dev/xeon_server && git add -A && git commit -m "feat: add server admin report, security hardening docs, and deploy guide[?2004l
+[0m[27m[24m[Jcmdand cmdand dquote> [K[?2004h[?2004l
+[0m[27m[24m[Jcmdand cmdand dquote> [K[?2004h-- SERVIDOR_XEON.md: consolidated server admin reference (SSH, UFW, Fail2Ban, Nginx, Cloudflare Tunnel, deploy, emergency commands)[?2004l
+[0m[27m[24m[Jcmdand cmdand dquote> [K[?2004h-- DEPLOY_RAPIDO.md: quick deploy instructions[?2004l
+[0m[27m[24m[Jcmdand cmdand dquote> [K[?2004h-- web_page_install_plan.md: full website installation plan[?2004l
+[0m[27m[24m[Jcmdand cmdand dquote> [K[?2004h-- AGENTS.md: agent workflow instructions[?2004l
+[0m[27m[24m[Jcmdand cmdand dquote> [K[?2004h-- nginx/: nginx config files[?2004l
+[0m[27m[24m[Jcmdand cmdand dquote> [K[?2004h-- public_html/: initial HTML files[?2004l
+[0m[27m[24m[Jcmdand cmdand dquote> [K[?2004h-- Imagens/: server reference images"[?2004l
+]133;C;]11;?\[6n]11;?\[6n[main deb61ad] feat: add server admin report, security hardening docs, and deploy guide
+ 25 files changed, 1081 insertions(+)
+ create mode 100644 .beads/.gitignore
+ create mode 100644 .beads/README.md
+ create mode 100644 .beads/config.yaml
+ create mode 100644 .beads/interactions.jsonl
+ create mode 100644 .beads/issues.jsonl
+ create mode 100644 .beads/metadata.json
+ create mode 100644 .gitattributes
+ create mode 100644 AGENTS.md
+ create mode 100644 DEPLOY_RAPIDO.md
+ create mode 100644 Imagens/Clinica_fachada.JPG
+ create mode 100644 Imagens/Cloudflare_detection.png
+ create mode 100644 Imagens/Config_DNS_Squarespace_02.png
+ create mode 100644 Imagens/Config_DNS_squarespace.png
+ create mode 100644 Imagens/DNS_records_cloudeflare_final.png
+ create mode 100644 Imagens/DNS_records_cloudflare.png
+ create mode 100644 Imagens/Port_Mapping_Huawei.png
+ create mode 100644 Imagens/Wan_information_Huawei.png
+ create mode 100644 Imagens/cloudflare_name_update.png
+ create mode 100644 Imagens/cloudflare_ultimo_step.png
+ create mode 100644 Imagens/michalkcare_site.png
+ create mode 100644 SERVIDOR_XEON.md
+ create mode 100644 nginx/michalkcare.conf
+ create mode 100644 public_html/index.html
+ create mode 100644 typescript
+ create mode 100644 web_page_install_plan.md
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hccd /Users/edsonmichalkiewicz/dev/xeon_server && git pull --rebase && git push[?2004l
+]133;C;Current branch main is up to date.
+]11;?\[6nEnumerating objects: 31, done.
+Counting objects:   3% (1/31)Counting objects:   6% (2/31)Counting objects:   9% (3/31)Counting objects:  12% (4/31)Counting objects:  16% (5/31)Counting objects:  19% (6/31)Counting objects:  22% (7/31)Counting objects:  25% (8/31)Counting objects:  29% (9/31)Counting objects:  32% (10/31)Counting objects:  35% (11/31)Counting objects:  38% (12/31)Counting objects:  41% (13/31)Counting objects:  45% (14/31)Counting objects:  48% (15/31)Counting objects:  51% (16/31)Counting objects:  54% (17/31)Counting objects:  58% (18/31)Counting objects:  61% (19/31)Counting objects:  64% (20/31)Counting objects:  67% (21/31)Counting objects:  70% (22/31)Counting objects:  74% (23/31)Counting objects:  77% (24/31)Counting objects:  80% (25/31)Counting objects:  83% (26/31)Counting objects:  87% (27/31)Counting objects:  90% (28/31)Counting objects:  93% (29/31)Counting objects:  96% (30/31)Counting objects: 100% (31/31)Counting objects: 100% (31/31), done.
+Delta compression using up to 14 threads
+Compressing objects:   3% (1/27)Compressing objects:   7% (2/27)Compressing objects:  11% (3/27)Compressing objects:  14% (4/27)Compressing objects:  18% (5/27)Compressing objects:  22% (6/27)Compressing objects:  25% (7/27)Compressing objects:  29% (8/27)Compressing objects:  33% (9/27)Compressing objects:  37% (10/27)Compressing objects:  40% (11/27)Compressing objects:  44% (12/27)Compressing objects:  48% (13/27)Compressing objects:  51% (14/27)Compressing objects:  55% (15/27)Compressing objects:  59% (16/27)Compressing objects:  62% (17/27)Compressing objects:  66% (18/27)Compressing objects:  70% (19/27)Compressing objects:  74% (20/27)Compressing objects:  77% (21/27)Compressing objects:  81% (22/27)Compressing objects:  85% (23/27)Compressing objects:  88% (24/27)Compressing objects:  92% (25/27)Compressing objects:  96% (26/27)Compressing objects: 100% (27/27)Compressing objects: 100% (27/27), done.
+Writing objects:   3% (1/30)Writing objects:   6% (2/30)Writing objects:  10% (3/30)Writing objects:  13% (4/30)Writing objects:  16% (5/30)Writing objects:  20% (6/30)Writing objects:  23% (7/30)Writing objects:  26% (8/30)Writing objects:  30% (9/30)Writing objects:  33% (10/30)Writing objects:  36% (11/30)Writing objects:  40% (12/30)Writing objects:  43% (13/30)Writing objects:  46% (14/30)Writing objects:  50% (15/30)Writing objects:  53% (16/30)Writing objects:  56% (17/30)Writing objects:  60% (18/30)Writing objects:  63% (19/30)Writing objects:  66% (20/30)Writing objects:  70% (21/30)Writing objects:  73% (22/30)Writing objects:  76% (23/30)Writing objects:  80% (24/30)Writing objects:  83% (25/30)Writing objects:  86% (26/30)Writing objects:  90% (27/30)Writing objects:  93% (28/30)Writing objects:  96% (29/30)Writing objects: 100% (30/30)Writing objects: 100% (30/30), 3.32 MiB | 9.18 MiB/s, done.
+Total 30 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/Edson-256/xeon_server.git
+   63d8f93..deb61ad  main -> main
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hccd /Users/edsonmichalkiewicz/dev/xeon_server && git status && git log -1 --oneline[?2004l
+]133;C;On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	[31mmodified:   typescript[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31m.beads/export-state/[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[33mdeb61ad[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m feat: add server admin report, security hardening docs, and deploy guide
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hccd /Users/edsonmichalkiewicz/dev/xeon_server && bd ready 2>/dev/null || bd onboard 2>/dev/null || echo "BD_NOT_FOUND"[?2004l
+]133;C;]11;?\[6n
+[38;2;194;217;76m✨[0m No open issues
+
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hccd /Users/edsonmichalkiewicz/dev/xeon_server && bd create --title "Reboot servidor para aplicar kernel pendente" --body "O servidor está rodando kernel 6.8.0-94 mas tem [K  o 6.8.0-100 disponível. Executar 'sudo reboot' em horário de baixo uso para aplicar." --priority low 2>/dev/null || bd create "Reboot servidor para aplicar kernel pendente" 2>/dev/null[?2004l
+]133;C;]11;?\[6n]11;?\[6n[38;2;194;217;76m✓[0m Created issue: xeon_server-2js
+  Title: Reboot servidor para aplicar kernel pendente
+  Priority: P2
+  Status: open
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hccd /Users/edsonmichalkiewicz/dev/xeon_server && bd create "Remover site default do Nginx" 2>/dev/null[?2004l
+]133;C;]11;?\[6n[38;2;194;217;76m✓[0m Created issue: xeon_server-8or
+  Title: Remover site default do Nginx
+  Priority: P2
+  Status: open
 [1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004h
