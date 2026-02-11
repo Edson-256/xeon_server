@@ -1,0 +1,90 @@
+Script started on Wed Feb 11 07:50:11 2026
+]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server]1337;ShellIntegrationVersion=14;shell=zsh[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hsssh -o BatchMode=yes -p 2222 edson@192.168.100.242 'mkdir -p /home/edson/scripts && printf "#!/bin/bash\nDATE=\$(date \"+%%Y-%%m-%%d %%H:%%M:%%S\")\ncheck_service() {\n [K   if systemctl is-active --quiet \$1; then\n    echo \"[\$DATE] OK: \$1 running\"\n  else\n    echo \"[\$DATE] CRITICAL: \$1 NOT running! Restarting...\"\n    sudo systemctl restart \$1\n  fi\n}\ncheck_service nginx\ [Knncheck_service cloudflared\ncheck_service fail2ban\ncheck_service ssh\nDISK=\$(df / | tail -1 | awk \"{print \\\$5}\" | tr -d \"%%\")\nif [ \$DISK -gt 80 ]; then\n  echo \"[\$DATE] WARNING: Disk \${DISK}%%\"\nelse\n  [K  echo \"[\$DATE] OK: Disk \${DISK}%%\"\nfi\nif sudo ufw status | grep -q active; then\n  echo \"[\$DATE] OK: UFW active\"\nelse\n  echo \"[\$DATE] CRITICAL: UFW inactive!\"\nfi\n" > /home/edson/scripts/health_check.s [Khh && chmod +x /home/edson/scripts/health_check.sh && echo "--- SCRIPT OK ---"'[?2004l
+]133;C;--- SCRIPT OK ---
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hsssh -o BatchMode=yes -p 2222 edson@192.168.100.242 '(sudo crontab -l 2>/dev/null; echo "0 */6 * * * /home/edson/scripts/health_check.sh >> /var/log/health_check.log 2>& [K11"; echo "0 3 * * 0 find /var/log -name \"*.gz\" -mtime +30 -delete") | sudo crontab - && echo "--- CRON OK ---" && sudo crontab -l'[?2004l
+]133;C;--- CRON OK ---
+0 */6 * * * /home/edson/scripts/health_check.sh >> /var/log/health_check.log 2>&1
+0 3 * * 0 find /var/log -name "*.gz" -mtime +30 -delete
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hsssh -o BatchMode=yes -p 2222 edson@192.168.100.242 'curl -sI http://localhost | head -20'[?2004l
+]133;C;HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Wed, 11 Feb 2026 10:51:05 GMT
+Content-Type: text/html
+Content-Length: 615
+Last-Modified: Fri, 30 Jan 2026 02:29:15 GMT
+Connection: keep-alive
+ETag: "697c177b-267"
+Accept-Ranges: bytes
+
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hsssh -o BatchMode=yes -p 2222 edson@192.168.100.242 'curl -sI -H "Host: michalkcare.com" http://localhost | head -20'[?2004l
+]133;C;HTTP/1.1 200 OK
+Server: nginx
+Date: Wed, 11 Feb 2026 10:51:16 GMT
+Content-Type: text/html
+Content-Length: 18859
+Last-Modified: Tue, 10 Feb 2026 15:03:01 GMT
+Connection: keep-alive
+Vary: Accept-Encoding
+ETag: "698b48a5-49ab"
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+Accept-Ranges: bytes
+
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004hsssh -o BatchMode=yes -o ConnectTimeout=5 -p 2222 edson@192.168.100.242 'echo "=== OS ==="; lsb_release -d; uname -r; echo "=== DISK ==="; df -h / /var/www; echo "=== NG [KIINX ==="; ls /etc/nginx/sites-enabled/; echo "=== SERVICES ==="; systemctl list-units --type=service --state=active --no-pager | grep -E "nginx|cloud|fail2ban|ssh|unattended"; echo "=== UFW ==="; sudo ufw status numb [Keered; echo "=== CRON ==="; sudo crontab -l 2>/dev/null; echo "=== TUNNEL ==="; cat /etc/systemd/system/cloudflared.service 2>/dev/null | grep -E "ExecStart|config"; echo "=== TUNNEL CONFIG ==="; cat /home/edson/.clou [Kddflared/config.yml 2>/dev/null; echo "=== WWW ==="; ls -la /var/www/; echo "=== USERS ==="; awk -F: "\$3>=1000{print \$1}" /etc/passwd'[?2004l
+]133;C;=== OS ===
+Description:	Ubuntu 24.04.3 LTS
+6.8.0-100-generic
+=== DISK ===
+Filesystem                         Size  Used Avail Use% Mounted on
+/dev/mapper/ubuntu--vg-ubuntu--lv   98G  9,8G   84G  11% /
+/dev/mapper/ubuntu--vg-ubuntu--lv   98G  9,8G   84G  11% /
+=== NGINX ===
+default
+michalkcare
+=== SERVICES ===
+  cloudflared.service                                                                       loaded active running cloudflared
+  fail2ban.service                                                                          loaded active running Fail2Ban Service
+  nginx.service                                                                             loaded active running A high performance web server and a reverse proxy server
+  ssh.service                                                                               loaded active running OpenBSD Secure Shell server
+  unattended-upgrades.service                                                               loaded active running Unattended Upgrades Shutdown
+=== UFW ===
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] Samba                      ALLOW IN    Anywhere                  
+[ 2] 2222/tcp                   ALLOW IN    Anywhere                   # SSH
+[ 3] 80                         ALLOW IN    127.0.0.1                  # Nginx-Tunnel
+[ 4] 80                         ALLOW IN    192.168.100.0/24           # LAN-Nginx
+[ 5] 2222                       ALLOW IN    192.168.100.0/24           # LAN-SSH
+[ 6] Samba (v6)                 ALLOW IN    Anywhere (v6)             
+[ 7] 2222/tcp (v6)              ALLOW IN    Anywhere (v6)              # SSH
+
+=== CRON ===
+0 */6 * * * /home/edson/scripts/health_check.sh >> /var/log/health_check.log 2>&1
+0 3 * * 0 find /var/log -name "*.gz" -mtime +30 -delete
+=== TUNNEL ===
+ExecStart=/usr/bin/cloudflared --no-autoupdate --config /etc/cloudflared/config.yml tunnel run
+=== TUNNEL CONFIG ===
+tunnel: 5e8dc101-eb71-4950-b3d7-da9d1463c2af
+credentials-file: /home/edson/.cloudflared/5e8dc101-eb71-4950-b3d7-da9d1463c2af.json
+
+ingress:
+  - hostname: michalkcare.com
+    service: http://localhost:80
+  - hostname: www.michalkcare.com
+    service: http://localhost:80
+  - service: http_status:404
+=== WWW ===
+total 16
+drwxr-xr-x  4 root  root  4096 fev 10 03:27 .
+drwxr-xr-x 14 root  root  4096 jan 30 02:29 ..
+drwxr-xr-x  2 root  root  4096 jan 30 02:29 html
+drwxr-xr-x  3 edson edson 4096 fev 10 03:27 michalkcare
+=== USERS ===
+nobody
+edson
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                        ]133;D;0]1337;RemoteHost=edsonmichalkiewicz@StudioM4]1337;CurrentDir=/Users/edsonmichalkiewicz/dev/xeon_server[0m[27m[24m[J]133;A[32medsonmichalkiewicz[39m@[34mStudioM4[39m [33m~/dev/xeon_server[39m % ]133;B[K[?2004h
