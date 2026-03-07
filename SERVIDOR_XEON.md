@@ -66,11 +66,22 @@ ingress:
     service: http://localhost:80
   - hostname: www.michalkcare.com
     service: http://localhost:80
+  - hostname: codigo.michalkcare.com
+    service: http://192.168.100.44:80
   - service: http_status:404
 ```
 
 > O tráfego da internet entra via Cloudflare → Tunnel seguro → Nginx local (porta 80).
 > **Nenhuma porta é exposta diretamente à internet.**
+
+### Servidores na Rede Local
+
+| Hostname | IP | Serviço | URL |
+|:---------|:---|:--------|:----|
+| Xeon Server | 192.168.100.242 | Website clínico | michalkcare.com |
+| Dell Server | 192.168.100.44 | CBHPM Code Advisor | codigo.michalkcare.com |
+
+> O Dell Server é acessado via tunnel do Xeon (proxy reverso na mesma LAN).
 
 ---
 
@@ -261,6 +272,7 @@ sudo reboot
 |:---------|:-----|:------|:------|
 | `michalkcare.com` | CNAME | Gerenciado pelo Tunnel | Proxy ativado (☁️) |
 | `www` | CNAME | Gerenciado pelo Tunnel | Proxy ativado (☁️) |
+| `codigo` | CNAME | Gerenciado pelo Tunnel | CBHPM Code Advisor (Dell Server) |
 | `n8n` | A | `31.97.19.152` | VPS separada |
 | MX/TXT | Vários | Google Workspace | Email corporativo |
 
