@@ -12,8 +12,8 @@
 | **Hostname** | Xeon Server (Dell Inspiron 14) |
 | **SO** | Ubuntu 24.04.3 LTS |
 | **Kernel** | 6.8.0-100-generic |
-| **IP Ethernet** | `192.168.100.242` |
-| **IP Wi-Fi** | `192.168.100.115` (backup) |
+| **IP Ethernet** | `192.168.18.242` (estático, gw `.18.1`, migrado 2026-06 — ver `MUDANCA_IP_LAN_2026-06.md`) |
+| **IP Wi-Fi** | (backup — IP `.18.x` a confirmar; antigo `192.168.100.115` obsoleto) |
 | **Disco** | 98 GB total, ~84 GB livre (11% em uso) |
 | **Domínio** | `michalkcare.com` / `www.michalkcare.com` |
 | **Usuário admin** | `edson` |
@@ -23,7 +23,7 @@
 ## 2. Acesso SSH
 
 ```bash
-ssh -p 2222 edson@192.168.100.242
+ssh -p 2222 edson@192.168.18.242
 ```
 
 | Configuração | Valor |
@@ -67,7 +67,7 @@ ingress:
   - hostname: www.michalkcare.com
     service: http://localhost:80
   - hostname: codigo.michalkcare.com
-    service: http://192.168.100.44:80
+    service: http://dell-server:80   # Tailscale MagicDNS (Dell) — imune a renumeração LAN. Migrado 2026-06 de 192.168.100.44.
   - service: http_status:404
 ```
 
@@ -78,8 +78,8 @@ ingress:
 
 | Hostname | IP | Serviço | URL |
 |:---------|:---|:--------|:----|
-| Xeon Server | 192.168.100.242 | Website clínico | michalkcare.com |
-| Dell Server | 192.168.100.44 | CBHPM Code Advisor | codigo.michalkcare.com |
+| Xeon Server | 192.168.18.242 | Website clínico | michalkcare.com |
+| Dell Server | 192.168.18.44 | CBHPM Code Advisor | codigo.michalkcare.com |
 
 > O Dell Server é acessado via tunnel do Xeon (proxy reverso na mesma LAN).
 
@@ -126,8 +126,8 @@ Status: active  |  Default: deny incoming, allow outgoing
 [1] Samba           ALLOW IN    Anywhere
 [2] 2222/tcp        ALLOW IN    Anywhere          # SSH
 [3] 80              ALLOW IN    127.0.0.1         # Nginx via Tunnel
-[4] 80              ALLOW IN    192.168.100.0/24  # LAN Nginx
-[5] 2222            ALLOW IN    192.168.100.0/24  # LAN SSH
+[4] 80              ALLOW IN    192.168.18.0/24  # LAN Nginx
+[5] 2222            ALLOW IN    192.168.18.0/24  # LAN SSH
 ```
 
 ```bash
@@ -135,7 +135,7 @@ Status: active  |  Default: deny incoming, allow outgoing
 sudo ufw status numbered
 
 # Adicionar regra
-sudo ufw allow from 192.168.100.0/24 to any port XXXX comment 'Descricao'
+sudo ufw allow from 192.168.18.0/24 to any port XXXX comment 'Descricao'
 
 # Remover regra
 sudo ufw delete NUMERO
@@ -219,7 +219,7 @@ O site é construído com **Astro** (gerador estático). O desenvolvimento é fe
 npm run build
 
 # 2. Copiar dist/ para o servidor:
-scp -P 2222 -r dist/ edson@192.168.100.242:/var/www/michalkcare/
+scp -P 2222 -r dist/ edson@192.168.18.242:/var/www/michalkcare/
 
 # 3. Verificar:
 curl -sI -H "Host: michalkcare.com" http://localhost

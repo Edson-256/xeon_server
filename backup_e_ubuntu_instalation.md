@@ -12,7 +12,7 @@ Em vez de usar a interface gráfica, vamos usar o protocolo SMB (que o Windows j
 
 1. **No Windows Server (via RDP):**
 * Garanta que a pasta de arquivos esteja compartilhada na rede.
-* Anote o IP do servidor (192.168.100.242).
+* Anote o IP do servidor (192.168.18.242).
 
 
 2. **No Mac (iTerm2):**
