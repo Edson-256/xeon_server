@@ -118,6 +118,18 @@ curl -sI -H "Host: michalkcare.com" http://localhost
 
 ---
 
+## 5b. Rota `/musica` — guia de leitura do canal de música (desde 2026-09-04)
+
+| Item | Valor |
+|---|---|
+| URL | `https://michalkcare.com/musica` |
+| Pasta | `/var/www/musica/` (dono `edson`; **fora** de `/var/www/michalkcare/dist`, que o deploy do Astro sobrescreve) |
+| Nginx | bloco `location /musica/ { alias /var/www/musica/; }` no vhost `michalkcare` (+ `301 /musica → /musica/`) |
+| Origem | repo `~/dev/_pessoal/musica`: `./run.sh guia` gera `GUIA_LEITURA/site/index.html` e envia por `rsync` |
+| Setup | `~/dev/_pessoal/musica/scripts/xeon_musica_setup.sh` (idempotente: `ssh xeon "bash -s" < …`) |
+
+Página estática única (~420 KB), sem dependência de serviço. Se o vhost for recriado, rodar o setup de novo.
+
 ## 6. Firewall (UFW)
 
 ```
