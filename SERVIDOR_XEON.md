@@ -289,3 +289,31 @@ sudo reboot
 | MX/TXT | Vários | Google Workspace | Email corporativo |
 
 **Nameservers**: `harvey.ns.cloudflare.com` / `maria.ns.cloudflare.com`
+
+---
+
+## 13. Energia: no-break (registrado 2026-10-05)
+
+Dados lidos da etiqueta traseira (fotos do Edson, 2026-10-05):
+
+| Campo | Valor |
+|:------|:------|
+| Modelo | **NHS Premium Senoidal GII 2200VA** (senoidal pura, DSP) |
+| Fabricação | **03/2013** |
+| Número de série | 004928 (código `1191.C0.0220000004928`) |
+| Potência | **2200 VA** (a etiqueta traseira não traz a potência em W) |
+| Entrada | 120/220 V, seleção automática |
+| Saída | **120 V** (reconfigurável 120/220 V — etiqueta "identificar se houver troca") |
+| Banco de bateria | **72 Vcc** (6 baterias de 12 V em série, deduzido da tensão — não aberto) |
+| Comunicação | **USB** ("Comunicação") + contatos secos NA1/NA2 (status bateria / status rede) — **não conectado a nenhum computador** em 2026-10-05 |
+| Assistência local | Videotec Eletrônica — (44) 99122-9605 (adesivo no aparelho) |
+
+- **Quem está ligado nele:** o Xeon Server e o **roteador** da clínica. É o nobreak que mantém
+  a rede de pé numa queda de luz — sem ele, nenhuma máquina fica acessível por Tailscale.
+- **Bateria:** a etiqueta manda trocar **em no máximo 5 anos ou quando o LED amarelo
+  ("Atenção") acender direto**. A data da última troca de bateria é **desconhecida**
+  (o aparelho é de 2013). Em 2026-10-05 o painel mostrava só **"Normal" aceso (azul)**,
+  sem "Atenção" nem "Proteção".
+- **Painel:** barras "Potência de saída" 20–100% indicam a carga atual.
+- **Inventário dos outros no-breaks da clínica:** nota `Reference/Inventario-Nobreaks.md`
+  no vault Obsidian.
