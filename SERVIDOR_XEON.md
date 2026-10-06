@@ -9,7 +9,7 @@
 
 | Item | Valor |
 |:-----|:------|
-| **Hostname** | Xeon Server (Dell Inspiron 14) |
+| **Hostname** | Xeon Server — servidor com **Intel Xeon X3430 @ 2.40GHz, placa Supermicro X8SIL** (medido por SSH em 2026-10-06; a versão anterior desta linha dizia "Dell Inspiron 14", que é o `dell_server`) |
 | **SO** | Ubuntu 24.04.3 LTS |
 | **Kernel** | 6.8.0-100-generic |
 | **IP Ethernet** | `192.168.18.242` (estático, gw `.18.1`, migrado 2026-06 — ver `MUDANCA_IP_LAN_2026-06.md`) |
@@ -308,6 +308,7 @@ Dados lidos da etiqueta traseira (fotos do Edson, 2026-10-05):
 | Comunicação | **USB** ("Comunicação") + contatos secos NA1/NA2 (status bateria / status rede) — **não conectado a nenhum computador** em 2026-10-05 |
 | Assistência local | Videotec Eletrônica — (44) 99122-9605 (adesivo no aparelho) |
 
+- **Onde:** andar **térreo**, junto do roteador (Yoshiun).
 - **Quem está ligado nele:** o Xeon Server e o **roteador** da clínica. É o nobreak que mantém
   a rede de pé numa queda de luz — sem ele, nenhuma máquina fica acessível por Tailscale.
 - **Bateria:** a etiqueta manda trocar **em no máximo 5 anos ou quando o LED amarelo
