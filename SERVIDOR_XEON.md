@@ -342,8 +342,9 @@ O site `michalkcare.com` fica fora do ar durante a queda — aceito pelo Edson.
   `journalctl -t upssched-cmd`. **Nunca deixar `TEST_MODE` no lugar** — sem ele é o modo real.
 - **⚠️ Religar depois da queda:** como o no-break continua ligado, o Xeon **fica desligado** quando a
   luz volta, até alguém ligá-lo. Ele aceita **Wake-on-LAN** (`enp5s0`, MAC `00:30:48:e4:2c:f8`,
-  `Wake-on: g`). **Religação automática (2026-10-06, `xeon_serve-cg8`):** o Mac Studio manda
+  `Wake-on: g`). **Religação automática (2026-10-06, `xeon_serve-cg8`):** o **dell-desktop** (principal; o Mac
+  Studio é só reforço, porque após queda longa ele para na senha do FileVault — `macstudio-67y`) manda
   Wake-on-LAN quando o Xeon some por 2 checagens (máx. 1 pacote/30 min) — ver
   `~/dev/studiom4/README.md` § Religar o Xeon. Se o Xeon ligar ainda em bateria, o serviço
   **`nut-boot-guard`** (`/usr/local/sbin/nut-boot-guard`, systemd) desliga de novo em 90 s.
-  Para manutenção com o Xeon desligado de propósito: `touch ~/.xeon_wol_pause` no Studio.
+  Para manutenção com o Xeon desligado de propósito: `touch ~/.xeon_wol_pause` no dell-desktop E no Studio.
