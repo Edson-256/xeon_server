@@ -318,3 +318,28 @@ Dados lidos da etiqueta traseira (fotos do Edson, 2026-10-05):
 - **Painel:** barras "Potência de saída" 20–100% indicam a carga atual.
 - **Inventário dos outros no-breaks da clínica:** nota `Reference/Inventario-Nobreaks.md`
   no vault Obsidian.
+
+### 13.1 Desligamento automático numa queda de luz (NUT, 2026-10-06 — `xeon_serve-cga`)
+
+**Objetivo:** numa queda, o Xeon sai do no-break para deixar a bateria para o **roteador e o
+switch** (que mantêm a internet e a rede da clínica, inclusive o Mac Studio no 2º andar).
+O site `michalkcare.com` fica fora do ar durante a queda — aceito pelo Edson.
+
+- **Conexão:** cabo USB NHS → Xeon. Aparece como `0925:1241` (Lakeview Research), porta
+  serial **`/dev/ttyACM0`**. Protocolo que funciona: **`nutdrv_qx` com `protocol = megatec`**
+  (testados e recusados: voltronic, mustek, bestups, zinto).
+- **Regra:** em bateria (`OB`) → timer de **5 min** (`upssched`) → `upsmon -c fsd` → desligamento
+  ordenado. Se a luz voltar antes (`OL`), o timer é cancelado. Bateria baixa (`LB`) desliga na hora.
+- **Arquivos:** `/etc/nut/{nut,ups,upsd,upsd.users,upsmon,upssched}.conf` + `/usr/local/sbin/upssched-cmd`.
+  Originais preservados como `*.orig`. Senha do usuário `upsmon` gerada aleatoriamente, só em
+  `/etc/nut/upsd.users` e `upsmon.conf` (640, root:nut).
+- **Serviços:** `nut-driver@nhs`, `nut-server`, `nut-monitor` (ativos e habilitados no boot).
+- **Ver o estado:** `upsc nhs@localhost` (status `OL` = na rede, `OB` = bateria, `LB` = bateria baixa;
+  `ups.load` em %, `battery.voltage` nominal 72 V). Leitura em 2026-10-06: carga **10%**,
+  bateria 81,6 V (recarregando após a queda de 04/10).
+- **Teste seguro (feito em 2026-10-06):** `touch /etc/nut/TEST_MODE` faz o `upssched-cmd` só
+  registrar no log em vez de desligar; disparo e cancelamento do timer conferidos com
+  `journalctl -t upssched-cmd`. **Nunca deixar `TEST_MODE` no lugar** — sem ele é o modo real.
+- **⚠️ Religar depois da queda:** como o no-break continua ligado, o Xeon **fica desligado** quando a
+  luz volta, até alguém ligá-lo. Ele aceita **Wake-on-LAN** (`enp5s0`, MAC `00:30:48:e4:2c:f8`,
+  `Wake-on: g`). Automatizar a religação: tarefa de acompanhamento no Beads.
