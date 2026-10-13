@@ -328,8 +328,17 @@ O site `michalkcare.com` fica fora do ar durante a queda — aceito pelo Edson.
 - **Conexão:** cabo USB NHS → Xeon. Aparece como `0925:1241` (Lakeview Research), porta
   serial **`/dev/ttyACM0`**. Protocolo que funciona: **`nutdrv_qx` com `protocol = megatec`**
   (testados e recusados: voltronic, mustek, bestups, zinto).
-- **Regra:** em bateria (`OB`) → timer de **5 min** (`upssched`) → `upsmon -c fsd` → desligamento
-  ordenado. Se a luz voltar antes (`OL`), o timer é cancelado. Bateria baixa (`LB`) desliga na hora.
+- **Regra:** em bateria (`OB`) → timer de **5 min** (`upssched`) → `shutdown -h +0` (só o Xeon) →
+  desligamento ordenado. Se a luz voltar antes (`OL`), o timer é cancelado. Bateria baixa (`LB`) desliga na hora.
+- **⚠️ Nunca usar `upsmon -c fsd` nem `POWERDOWNFLAG` aqui (corrigido 2026-10-13, `xeon_serve-71u`).**
+  Até 13/10 o timer chamava `upsmon -c fsd` e o `upsmon.conf` tinha `POWERDOWNFLAG /etc/killpower`.
+  No FSD o upsmon cria `/etc/killpower` e, no fim do desligamento, o `nutshutdown` roda
+  `upsdrvctl shutdown`: o **no-break corta a própria saída** 30 s depois e derruba roteador, ONT e
+  switch. Foi o que aconteceu na queda de 12/10. O Xeon desligou às 21:37:35 e a rede caiu às ~21:38.
+  A luz voltou às 22:11, mas o no-break **não religou sozinho** e só foi ligado à mão às 09:08 de 13/10,
+  depois de ~11h30 sem rede. Agora o `POWERDOWNFLAG` está comentado e o `upssched-cmd` chama `shutdown`
+  direto. Conferir com `sudo upsmon -K`: deve responder "Power down flag is not set".
+  Backups da versão antiga: `*.bak_20261013_151637` em `/etc/nut/` e `/usr/local/sbin/`.
 - **Arquivos:** `/etc/nut/{nut,ups,upsd,upsd.users,upsmon,upssched}.conf` + `/usr/local/sbin/upssched-cmd`.
   Originais preservados como `*.orig`. Senha do usuário `upsmon` gerada aleatoriamente, só em
   `/etc/nut/upsd.users` e `upsmon.conf` (640, root:nut).
